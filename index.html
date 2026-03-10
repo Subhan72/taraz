@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taraz Technologies – Lecture Processing</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- MSAL.js v2 (browser) -->
-    <script src="https://alcdn.msauth.net/lib/2.38.4/js/msal-browser.min.js" crossorigin="anonymous"></script>
+    <!-- MSAL.js v2 (browser)
+         Using jsDelivr CDN for @azure/msal-browser.
+         The previous alcdn.msauth.net URL returned 404, so msal was never defined. -->
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.7.0/lib/msal-browser.min.js" crossorigin="anonymous"></script>
     <script defer src="msal-config.js"></script>
     <script defer src="app.js"></script>
   </head>
