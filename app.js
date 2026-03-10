@@ -106,6 +106,16 @@ async function getToken() {
 }
 
 async function init() {
+  // REQUIRED for @azure/msal-browser v3+: initialize before any other MSAL calls.
+  try {
+    await msalInstance.initialize();
+  } catch (error) {
+    console.error("MSAL initialization failed", error);
+    setAuthStatus("Authentication library failed to initialize. Please refresh or contact IT.", "error");
+    setSignedInState(false);
+    return;
+  }
+
   // Handle redirect if used (we mainly use popup here, but this keeps things robust).
   msalInstance
     .handleRedirectPromise()
