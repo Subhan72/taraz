@@ -1,0 +1,223 @@
+/* Reset-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #333;
+  background-color: #f5f7fa;
+}
+
+/* Header inspired by Taraz site */
+.tt-header {
+  background-color: #00a8b8; /* teal bar */
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.tt-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tt-logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.tt-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.tt-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tt-nav-link:hover {
+  text-decoration: underline;
+}
+
+.tt-header-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tt-button {
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+}
+
+.tt-button-primary {
+  background-color: #00a8b8;
+  color: #fff;
+}
+
+.tt-button-primary:hover {
+  background-color: #008c9a;
+}
+
+.tt-button-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.tt-button-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tt-button-hidden {
+  display: none;
+}
+
+/* Main layout */
+.tt-main {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 16px 48px;
+}
+
+.tt-hero {
+  margin-bottom: 24px;
+}
+
+.tt-hero-content h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.tt-hero-content p {
+  margin: 0;
+  color: #555;
+}
+
+.tt-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 20px 20px 24px;
+}
+
+.tt-auth-status {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  border-radius: 3px;
+}
+
+.tt-auth-status-warning {
+  background-color: #fff4ce;
+  color: #5c3c00;
+  border: 1px solid #ffb900;
+}
+
+.tt-auth-status-ok {
+  background-color: #e7f5ff;
+  color: #004578;
+  border: 1px solid #0078d4;
+}
+
+.tt-auth-status-error {
+  background-color: #fde7e9;
+  color: #a80000;
+  border: 1px solid #d13438;
+}
+
+.tt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tt-form-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.tt-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tt-label-sub {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.tt-input {
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 1px solid #d0d7de;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.tt-input:focus {
+  outline: none;
+  border-color: #00a8b8;
+  box-shadow: 0 0 0 1px rgba(0, 168, 184, 0.25);
+}
+
+#submit-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.tt-result {
+  margin-top: 16px;
+  padding: 12px 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  border: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  word-break: break-word;
+}
+
+.tt-result-hidden {
+  display: none;
+}
+
+.tt-result-success {
+  border-color: #28a745;
+  background-color: #e6ffed;
+}
+
+.tt-result-error {
+  border-color: #d13438;
+  background-color: #fde7e9;
+}
+
+@media (max-width: 768px) {
+  .tt-header-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tt-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

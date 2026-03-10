@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taraz Technologies – Lecture Processing</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- MSAL.js v2 (browser) -->
+    <script src="https://alcdn.msauth.net/browser/2.38.4/js/msal-browser.min.js" integrity="sha384-3p9hq1dYtPAGwq/TBcNbJfJ14q9lHK20jW/Ta3cuxKQXPjCuwC3JciLdo7veVnJp" crossorigin="anonymous"></script>
+    <script defer src="msal-config.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <!-- Header mimicking Taraz site style -->
+    <header class="tt-header">
+      <div class="tt-header-inner">
+        <div class="tt-logo">
+          <!-- If you want, replace src with the saved header/logo image path in this repo -->
+          <img src="taraz-logo.png" alt="Taraz Technologies" />
+        </div>
+        <div class="tt-header-right">
+          <button id="signin-btn" class="tt-button tt-button-outline">Sign in</button>
+          <button id="signout-btn" class="tt-button tt-button-outline tt-button-hidden">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="tt-main">
+      <section class="tt-hero">
+        <div class="tt-hero-content">
+          <h1>Lecture to Diagram PDF</h1>
+          <p>
+            Submit a YouTube or Google Drive video URL to generate enhanced diagram PDFs
+            using your organization’s processing pipeline.
+          </p>
+        </div>
+      </section>
+
+      <section class="tt-card" id="app-card">
+        <div id="auth-status" class="tt-auth-status tt-auth-status-warning">
+          Please sign in with your Taraz Technologies Microsoft account to continue.
+        </div>
+
+        <form id="video-form" class="tt-form tt-form-disabled">
+          <label for="video-url" class="tt-label">
+            Video URL
+            <span class="tt-label-sub">Paste a YouTube or Google Drive link.</span>
+          </label>
+          <input
+            id="video-url"
+            name="video_url"
+            type="url"
+            class="tt-input"
+            placeholder="https://youtube.com/... or https://drive.google.com/..."
+            required
+          />
+
+          <button type="submit" class="tt-button tt-button-primary" id="submit-btn">
+            Submit for processing
+          </button>
+        </form>
+
+        <div id="result" class="tt-result tt-result-hidden"></div>
+      </section>
+    </main>
+  </body>
+  </html>
+
