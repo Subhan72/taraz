@@ -154,6 +154,7 @@ async function init() {
     resultEl.classList.add("tt-result-hidden");
 
     const videoUrl = document.getElementById("video-url").value.trim();
+    const title = document.getElementById("video-title").value.trim();
     if (!videoUrl) {
       showResult("Please provide a YouTube or Google Drive URL.", true);
       return;
@@ -186,7 +187,7 @@ async function init() {
             ? { Authorization: `Bearer ${currentAccessToken}` }
             : {}),
         },
-        body: JSON.stringify({ video_url: videoUrl }),
+        body: JSON.stringify({ video_url: videoUrl, title }),
       });
 
       if (!response.ok) {
