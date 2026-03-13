@@ -11,6 +11,7 @@ const resultEl = document.getElementById("result");
 
 let currentAccount = null;
 let currentAccessToken = null;
+let currentUserEmail = null;
 
 function setAuthStatus(message, type) {
   authStatusEl.textContent = message;
@@ -77,6 +78,7 @@ function handleResponse(response) {
 
   // Extra client-side domain check.
   const username = currentAccount.username || currentAccount.localAccountId || "";
+  currentUserEmail = username || null;
   if (!username.toLowerCase().endsWith(allowedEmailDomain)) {
     setSignedInState(false);
     setAuthStatus(
@@ -187,7 +189,11 @@ async function init() {
             ? { Authorization: `Bearer ${currentAccessToken}` }
             : {}),
         },
-        body: JSON.stringify({ video_url: videoUrl, title }),
+        body: JSON.stringify({
+          video_url: videoUrl,
+          title,
+          user_email: currentUserEmail || "",
+        }),
       });
 
       if (!response.ok) {
